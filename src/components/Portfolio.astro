@@ -42,7 +42,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
     <!-- Portfolio grid -->
     <div class="columns-1 sm:columns-2 lg:columns-3 gap-4 reveal" id="portfolio-grid">
       {sorted.map((item) => {
-        const imagePath = `/src/assets/images/portfolio/${item.data.category}/${item.id.split('/').pop()}.svg`;
+        const imagePath = `/src/assets/images/portfolio/${item.data.category}/${item.id.split('/').pop()}.jpg`;
         const imageModule = images[imagePath];
         return imageModule ? (
           <div
