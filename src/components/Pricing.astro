@@ -1,0 +1,63 @@
+---
+import PricingCard from './PricingCard.astro';
+
+const packages = [
+  {
+    title: 'Букет невесты',
+    price: 'от 150 BYN',
+    features: [
+      'Подбор цветов под стилистику свадьбы',
+      'Букет невесты из живых цветов',
+      'Бутоньерка жениха в подарок',
+      'Доставка в день свадьбы',
+    ],
+  },
+  {
+    title: 'Оформление свадьбы',
+    price: 'от 500 BYN',
+    features: [
+      'Консультация и разработка концепции',
+      'Цветочная арка для церемонии',
+      'Композиции на гостевые столы',
+      'Оформление стола молодожёнов',
+      'Монтаж и демонтаж декора',
+    ],
+    highlighted: true,
+  },
+  {
+    title: 'Декор мероприятия',
+    price: 'от 300 BYN',
+    features: [
+      'Консультация по стилистике',
+      'Цветочные композиции',
+      'Оформление фотозоны',
+      'Монтаж на площадке',
+    ],
+  },
+];
+---
+
+<section id="pricing" class="py-20 sm:py-28 px-4 bg-white">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <p class="text-sage-dark uppercase tracking-[0.2em] text-sm mb-4">Стоимость</p>
+      <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl">Пакеты услуг</h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 reveal">
+      {packages.map((pkg) => (
+        <PricingCard
+          title={pkg.title}
+          price={pkg.price}
+          features={pkg.features}
+          highlighted={pkg.highlighted}
+        />
+      ))}
+    </div>
+
+    <p class="text-center text-charcoal-light text-sm mt-10 reveal">
+      Точная стоимость рассчитывается индивидуально после консультации.
+      Цена зависит от объёма работ, выбора цветов и площадки.
+    </p>
+  </div>
+</section>

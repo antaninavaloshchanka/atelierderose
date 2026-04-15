@@ -1,0 +1,49 @@
+---
+import ServiceCard from './ServiceCard.astro';
+import weddingDecor from '../assets/images/services/wedding-decor.svg';
+import bouquets from '../assets/images/services/bouquets.svg';
+import eventDecor from '../assets/images/services/event-decor.svg';
+import consultation from '../assets/images/services/consultation.svg';
+
+const services = [
+  {
+    title: 'Оформление свадьбы',
+    description: 'Цветочные арки, композиции на столы, оформление зоны церемонии и банкетного зала живыми цветами.',
+    image: weddingDecor,
+  },
+  {
+    title: 'Свадебные букеты',
+    description: 'Букет невесты, бутоньерки, букеты для подружек — в единой стилистике вашего торжества.',
+    image: bouquets,
+  },
+  {
+    title: 'Декор мероприятий',
+    description: 'Дни рождения, корпоративы, юбилеи, фотозоны — оформление любого формата живыми цветами.',
+    image: eventDecor,
+  },
+  {
+    title: 'Консультация',
+    description: 'Подбор стилистики, цветовой палитры и концепции декора. Помогу воплотить вашу мечту в реальность.',
+    image: consultation,
+  },
+];
+---
+
+<section id="services" class="py-20 sm:py-28 px-4 bg-white">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <p class="text-sage-dark uppercase tracking-[0.2em] text-sm mb-4">Услуги</p>
+      <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl">Что я предлагаю</h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
+      {services.map((service) => (
+        <ServiceCard
+          title={service.title}
+          description={service.description}
+          image={service.image}
+        />
+      ))}
+    </div>
+  </div>
+</section>

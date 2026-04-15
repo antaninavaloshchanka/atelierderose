@@ -1,0 +1,93 @@
+---
+import { getCollection } from 'astro:content';
+
+const testimonials = await getCollection('testimonials');
+---
+
+<section id="testimonials" class="py-20 sm:py-28 px-4">
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <p class="text-sage-dark uppercase tracking-[0.2em] text-sm mb-4">Отзывы</p>
+      <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl">Что говорят клиенты</h2>
+    </div>
+
+    <div class="relative reveal" id="testimonial-slider">
+      <!-- Track -->
+      <div class="overflow-hidden">
+        <div class="flex transition-transform duration-500 ease-in-out" id="testimonial-track">
+          {testimonials.map((t) => (
+            <div class="w-full flex-shrink-0 px-4">
+              <div class="text-center max-w-2xl mx-auto">
+                <!-- Stars -->
+                <div class="flex justify-center gap-1 mb-6">
+                  {Array.from({ length: t.data.rating }).map(() => (
+                    <svg class="w-5 h-5 text-dusty-rose" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+
+                <blockquote class="font-heading text-xl sm:text-2xl italic leading-relaxed mb-8 text-charcoal">
+                  &laquo;{t.data.text}&raquo;
+                </blockquote>
+
+                <div>
+                  <p class="font-medium text-charcoal">{t.data.name}</p>
+                  <p class="text-sm text-charcoal-light mt-1">{t.data.event}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Navigation dots -->
+      <div class="flex justify-center gap-3 mt-10" id="testimonial-dots">
+        {testimonials.map((_, i) => (
+          <button
+            class="w-2.5 h-2.5 rounded-full bg-charcoal/20 transition-all duration-300 hover:bg-charcoal/40"
+            data-index={i}
+            aria-label={`Отзыв ${i + 1}`}
+          ></button>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const track = document.getElementById('testimonial-track') as HTMLElement;
+  const dots = document.querySelectorAll('#testimonial-dots button');
+  const total = dots.length;
+  let current = 0;
+  let startX = 0;
+  let autoplayId: ReturnType<typeof setInterval>;
+
+  const goTo = (index: number) => {
+    current = ((index % total) + total) % total;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    dots.forEach((d, i) => {
+      d.classList.toggle('!bg-charcoal', i === current);
+      d.classList.toggle('!w-8', i === current);
+    });
+  };
+
+  dots.forEach((dot, i) => dot.addEventListener('click', () => { goTo(i); resetAutoplay(); }));
+
+  // Touch/swipe
+  track.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend', (e) => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) {
+      goTo(current + (diff > 0 ? 1 : -1));
+      resetAutoplay();
+    }
+  });
+
+  // Autoplay
+  const startAutoplay = () => { autoplayId = setInterval(() => goTo(current + 1), 5000); };
+  const resetAutoplay = () => { clearInterval(autoplayId); startAutoplay(); };
+
+  goTo(0);
+  startAutoplay();
+</script>

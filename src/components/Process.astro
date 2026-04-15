@@ -1,0 +1,51 @@
+---
+const steps = [
+  {
+    number: '01',
+    title: 'Знакомство',
+    description: 'Обсуждаем ваши пожелания, стиль, цветовую палитру и бюджет. Узнаю о вашем событии всё.',
+  },
+  {
+    number: '02',
+    title: 'Концепция',
+    description: 'Разрабатываю концепцию декора, подбираю цветы и материалы. Согласовываем каждую деталь.',
+  },
+  {
+    number: '03',
+    title: 'Реализация',
+    description: 'Закупаю свежайшие цветы и создаю все композиции. Собираю и подготавливаю декор.',
+  },
+  {
+    number: '04',
+    title: 'Ваш день',
+    description: 'Монтаж декора на площадке. Слежу за каждой деталью, чтобы всё было безупречно.',
+  },
+];
+---
+
+<section id="process" class="py-20 sm:py-28 px-4 bg-white">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <p class="text-sage-dark uppercase tracking-[0.2em] text-sm mb-4">Процесс</p>
+      <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl">Как мы работаем</h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 reveal">
+      {steps.map((step, i) => (
+        <div class="relative text-center group">
+          {/* Connecting line (hidden on mobile, shown on lg) */}
+          {i < steps.length - 1 && (
+            <div class="hidden lg:block absolute top-8 left-[60%] w-[80%] h-px bg-sage/30"></div>
+          )}
+
+          <div class="w-16 h-16 mx-auto mb-6 rounded-full border-2 border-sage flex items-center justify-center group-hover:bg-sage group-hover:text-white transition-all duration-300">
+            <span class="font-heading text-xl">{step.number}</span>
+          </div>
+
+          <h3 class="font-heading text-xl mb-3">{step.title}</h3>
+          <p class="text-charcoal-light text-sm leading-relaxed">{step.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

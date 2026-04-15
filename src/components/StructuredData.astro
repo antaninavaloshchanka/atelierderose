@@ -1,0 +1,34 @@
+---
+import siteData from '../data/site.json';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": siteData.brand,
+  "description": siteData.description,
+  "url": "https://atelierderose.by",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Гомель",
+    "addressCountry": "BY"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "52.4345",
+    "longitude": "30.9754"
+  },
+  "openingHours": "Mo-Sa 10:00-19:00",
+  "priceRange": "$$",
+  "image": "https://atelierderose.by/og-image.jpg",
+  "sameAs": [
+    siteData.instagram,
+    siteData.telegram
+  ],
+  "serviceArea": {
+    "@type": "City",
+    "name": "Гомель"
+  }
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

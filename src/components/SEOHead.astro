@@ -1,0 +1,47 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+}
+
+import siteData from '../data/site.json';
+
+const {
+  title = `${siteData.brand} | Свадебный флорист Гомель`,
+  description = siteData.description,
+  ogImage = '/og-image.jpg',
+} = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="keywords" content="свадебный флорист Гомель, оформление свадьбы Гомель, декор свадьбы живыми цветами, свадебные букеты Гомель, флористика Гомель, декор мероприятий Гомель, Atelier de Rose" />
+<link rel="canonical" href={canonicalUrl} />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={new URL(ogImage, Astro.site)} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:locale" content="ru_RU" />
+<meta property="og:site_name" content={siteData.brand} />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={new URL(ogImage, Astro.site)} />
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="apple-touch-icon" href="/favicon.svg" />
+
+<!-- Manifest -->
+<link rel="manifest" href="/manifest.webmanifest" />
+<meta name="theme-color" content="#A8B5A0" />

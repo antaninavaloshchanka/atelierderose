@@ -1,0 +1,44 @@
+---
+import { Image } from 'astro:assets';
+import siteData from '../data/site.json';
+import heroImage from '../assets/images/hero/hero-main.svg';
+---
+
+<section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
+  <!-- Background image -->
+  <div class="absolute inset-0">
+    <Image
+      src={heroImage}
+      alt="Свадебная флористика Atelier de Rose"
+      class="w-full h-full object-cover"
+      loading="eager"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-black/10"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 text-center text-white px-4 max-w-3xl mx-auto">
+    <h1 class="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl mb-4 tracking-wide">
+      {siteData.brand}
+    </h1>
+    <p class="text-lg sm:text-xl md:text-2xl font-light mb-2 tracking-wide opacity-90">
+      {siteData.tagline}
+    </p>
+    <p class="text-sm sm:text-base uppercase tracking-[0.3em] opacity-70 mb-10">
+      {siteData.location}
+    </p>
+    <a
+      href="#contact"
+      class="inline-block px-10 py-4 border-2 border-white text-white text-sm uppercase tracking-[0.2em] hover:bg-white hover:text-charcoal transition-all duration-300"
+    >
+      Обсудить оформление
+    </a>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+    <svg class="w-6 h-6 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+    </svg>
+  </div>
+</section>

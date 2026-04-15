@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #FAF8F5;
+  --color-cream-dark: #F0EDE8;
+  --color-sage: #A8B5A0;
+  --color-sage-light: #C5D1BF;
+  --color-sage-dark: #7A8B72;
+  --color-dusty-rose: #C4A4A4;
+  --color-dusty-rose-light: #D9C4C4;
+  --color-dusty-rose-dark: #A07878;
+  --color-charcoal: #3A3A3A;
+  --color-charcoal-light: #6B6B6B;
+  --color-warm-gray: #8A8580;
+
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-charcoal);
+  background-color: var(--color-cream);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

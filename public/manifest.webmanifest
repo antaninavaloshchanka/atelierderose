@@ -1,0 +1,13 @@
+{
+  "name": "Atelier de Rose",
+  "short_name": "Atelier de Rose",
+  "description": "Свадебная флористика и декор в Гомеле",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAF8F5",
+  "theme_color": "#A8B5A0",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ],
+  "lang": "ru"
+}

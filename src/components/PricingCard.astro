@@ -1,0 +1,44 @@
+---
+interface Props {
+  title: string;
+  price: string;
+  features: string[];
+  highlighted?: boolean;
+}
+
+const { title, price, features, highlighted = false } = Astro.props;
+---
+
+<div class:list={[
+  'p-8 rounded-sm transition-shadow duration-300 hover:shadow-lg',
+  highlighted ? 'bg-sage/10 border-2 border-sage' : 'bg-white border border-charcoal/10'
+]}>
+  {highlighted && (
+    <p class="text-xs uppercase tracking-[0.2em] text-sage-dark mb-4">Популярный выбор</p>
+  )}
+  <h3 class="font-heading text-2xl mb-2">{title}</h3>
+  <p class="text-3xl font-heading text-sage-dark mb-6">
+    {price}
+  </p>
+  <ul class="space-y-3 mb-8">
+    {features.map((f) => (
+      <li class="flex items-start gap-3 text-sm text-charcoal-light">
+        <svg class="w-4 h-4 text-sage mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+        </svg>
+        {f}
+      </li>
+    ))}
+  </ul>
+  <a
+    href="#contact"
+    class:list={[
+      'block text-center py-3 text-sm uppercase tracking-[0.15em] transition-all duration-300 rounded-sm',
+      highlighted
+        ? 'bg-sage text-white hover:bg-sage-dark'
+        : 'border border-charcoal/20 text-charcoal hover:bg-charcoal hover:text-white'
+    ]}
+  >
+    Оставить заявку
+  </a>
+</div>

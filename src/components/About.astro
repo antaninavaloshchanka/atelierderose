@@ -1,0 +1,45 @@
+---
+import { Image } from 'astro:assets';
+import portraitImage from '../assets/images/about/florist-portrait.svg';
+---
+
+<section id="about" class="py-20 sm:py-28 px-4">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <!-- Photo -->
+      <div class="reveal">
+        <div class="relative">
+          <Image
+            src={portraitImage}
+            alt="Флорист Atelier de Rose"
+            class="w-full rounded-sm shadow-lg"
+          />
+          <div class="absolute -bottom-4 -right-4 w-full h-full border-2 border-sage/30 rounded-sm -z-10"></div>
+        </div>
+      </div>
+
+      <!-- Text -->
+      <div class="reveal">
+        <p class="text-sage-dark uppercase tracking-[0.2em] text-sm mb-4">О нас</p>
+        <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl mb-6 leading-tight">
+          Каждый цветок <br />рассказывает историю
+        </h2>
+        <div class="space-y-4 text-charcoal-light leading-relaxed">
+          <p>
+            Я — выпускница Рижской международной школы дизайна, и моя страсть —
+            превращать живые цветы в произведения искусства. Каждая композиция,
+            которую я создаю, несёт в себе частичку вашей истории.
+          </p>
+          <p>
+            Работаю в Гомеле и создаю авторскую флористику для свадеб,
+            торжеств и особых моментов. Мой подход — это внимание к деталям,
+            чувство стиля и искренняя любовь к ботаническому искусству.
+          </p>
+          <p class="font-heading text-xl italic text-sage-dark pt-2">
+            &laquo;Цветы — это язык, на котором природа говорит о любви&raquo;
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
