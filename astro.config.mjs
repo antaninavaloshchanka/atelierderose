@@ -4,7 +4,8 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://atelierderose.by',
+  site: 'https://antaninavaloshchanka.github.io',
+  base: '/atelierderose',
   i18n: {
     locales: ['ru'],
     defaultLocale: 'ru',
