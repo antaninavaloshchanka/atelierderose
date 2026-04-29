@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FAF8F5"/>
+      <stop offset="100%" stop-color="#F0EDE8"/>
+    </linearGradient>
+    <linearGradient id="rose" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#D9C4C4"/>
+      <stop offset="100%" stop-color="#C4A4A4"/>
+    </linearGradient>
+    <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#C5D1BF"/>
+      <stop offset="100%" stop-color="#A8B5A0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="256" cy="256" r="256" fill="url(#bg)"/>
+  <circle cx="256" cy="256" r="240" fill="none" stroke="#A8B5A0" stroke-width="1.5" opacity="0.3"/>
+
+  <!-- Rose petals - stylized spiral rose from above -->
+  <!-- Outer petals -->
+  <path d="M256 130 C310 130, 370 175, 370 235 C370 260, 355 285, 330 300 C350 265, 345 225, 310 195 C285 175, 260 170, 256 170Z" fill="url(#rose)" opacity="0.5"/>
+  <path d="M370 235 C370 295, 330 355, 270 370 C245 375, 220 370, 200 355 C240 370, 285 355, 315 320 C340 290, 350 260, 370 235Z" fill="url(#rose)" opacity="0.55"/>
+  <path d="M270 370 C210 380, 145 345, 135 280 C130 255, 140 230, 155 210 C145 250, 155 295, 190 325 C215 345, 245 365, 270 370Z" fill="url(#rose)" opacity="0.6"/>
+  <path d="M135 280 C125 220, 160 155, 220 138 C245 132, 256 130, 256 130 C225 140, 185 165, 170 200 C155 235, 145 260, 135 280Z" fill="url(#rose)" opacity="0.5"/>
+
+  <!-- Middle petals -->
+  <path d="M256 165 C295 165, 335 195, 340 240 C342 260, 330 280, 310 295 C325 265, 320 235, 300 210 C285 195, 268 180, 256 175Z" fill="url(#rose)" opacity="0.65"/>
+  <path d="M340 240 C345 285, 315 330, 270 345 C250 350, 230 345, 215 335 C245 345, 280 330, 300 305 C318 280, 330 258, 340 240Z" fill="url(#rose)" opacity="0.7"/>
+  <path d="M270 345 C225 355, 175 330, 165 285 C160 265, 168 245, 180 230 C172 260, 180 290, 205 310 C225 328, 250 340, 270 345Z" fill="url(#rose)" opacity="0.7"/>
+  <path d="M165 285 C158 240, 185 195, 230 178 C245 172, 256 165, 256 165 C235 178, 205 200, 192 225 C180 250, 170 268, 165 285Z" fill="url(#rose)" opacity="0.65"/>
+
+  <!-- Inner petals - tighter spiral -->
+  <path d="M256 200 C280 200, 310 218, 312 248 C313 260, 305 275, 292 282 C302 265, 298 245, 286 228 C278 218, 265 208, 256 205Z" fill="#C4A4A4" opacity="0.75"/>
+  <path d="M312 248 C316 275, 298 302, 272 310 C260 314, 248 310, 238 304 C255 310, 275 300, 288 282 C298 268, 306 255, 312 248Z" fill="#C4A4A4" opacity="0.8"/>
+  <path d="M272 310 C248 318, 218 305, 212 280 C210 268, 215 258, 224 248 C218 265, 225 285, 242 298 C254 306, 264 310, 272 310Z" fill="#C4A4A4" opacity="0.8"/>
+  <path d="M212 280 C206 255, 222 232, 244 222 C252 218, 256 200, 256 200 C246 215, 232 230, 226 248 C220 262, 215 272, 212 280Z" fill="#C4A4A4" opacity="0.75"/>
+
+  <!-- Rose center -->
+  <ellipse cx="258" cy="258" rx="18" ry="16" fill="#A07878" opacity="0.5"/>
+  <ellipse cx="254" cy="255" rx="10" ry="9" fill="#C4A4A4" opacity="0.7"/>
+
+  <!-- Left leaf -->
+  <path d="M155 340 C130 310, 125 265, 150 240 C165 255, 155 290, 165 320Z" fill="url(#leaf)" opacity="0.8"/>
+  <path d="M150 240 C157 270, 160 300, 155 340" fill="none" stroke="#7A8B72" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- Right leaf -->
+  <path d="M355 330 C380 300, 385 255, 360 232 C345 248, 358 282, 345 315Z" fill="url(#leaf)" opacity="0.8"/>
+  <path d="M360 232 C353 262, 350 295, 355 330" fill="none" stroke="#7A8B72" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- Brand text -->
+  <text x="256" y="428" font-family="Georgia, 'Times New Roman', serif" font-size="42" fill="#3A3A3A" text-anchor="middle" letter-spacing="6" font-variant="small-caps">Atelier de Rose</text>
+</svg>
