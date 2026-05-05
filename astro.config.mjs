@@ -7,7 +7,7 @@ import node from '@astrojs/node';
 export default defineConfig({
   site: 'https://antaninavaloshchanka.github.io',
   base: '/atelierderose',
-  output: 'hybrid',
+  output: 'static',
   adapter: node({ mode: 'standalone' }),
   i18n: {
     locales: ['ru'],
