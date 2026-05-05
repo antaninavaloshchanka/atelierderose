@@ -140,6 +140,18 @@ import siteData from '../data/site.json';
             ></textarea>
           </div>
 
+          <label class="flex items-start gap-3 cursor-pointer">
+            <input
+              type="checkbox"
+              name="consent"
+              required
+              class="mt-1 w-4 h-4 accent-sage"
+            />
+            <span class="text-xs text-charcoal-light leading-relaxed">
+              Я согласен(на) с <a href="/privacy" target="_blank" rel="noopener" class="underline hover:text-sage-dark transition-colors">Политикой обработки персональных данных</a>
+            </span>
+          </label>
+
           <button
             type="submit"
             class="w-full py-4 bg-sage text-white text-sm uppercase tracking-[0.15em] hover:bg-sage-dark transition-colors duration-300 rounded-sm"
