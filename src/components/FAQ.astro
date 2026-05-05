@@ -1,0 +1,74 @@
+---
+const faqs = [
+  {
+    question: 'Сколько стоит оформление свадьбы цветами в Гомеле?',
+    answer: 'Стоимость оформления начинается от 500 BYN и зависит от объёма работ, выбора цветов и площадки. Букет невесты — от 150 BYN. Точную цену рассчитываю после консультации, когда понимаю масштаб и стилистику вашего мероприятия.',
+  },
+  {
+    question: 'За сколько нужно бронировать флориста на свадьбу?',
+    answer: 'Рекомендую обращаться за 2–3 месяца до даты свадьбы. В сезон (май–сентябрь) популярные даты разбирают ещё раньше. Для бронирования достаточно внести предоплату после согласования концепции.',
+  },
+  {
+    question: 'Какие цветы выбрать на зимнюю свадьбу?',
+    answer: 'Зимой отлично смотрятся розы, ранункулюсы, анемоны, хлопок, эвкалипт и хвоя. Они стойкие и хорошо переносят холод. На консультации подберу палитру и состав под ваш стиль и бюджет.',
+  },
+  {
+    question: 'Работаете только в Гомеле или выезжаете за город?',
+    answer: 'Работаю в Гомеле и по всей Гомельской области. Выезд на площадку за городом возможен — стоимость доставки и монтажа обсуждаем индивидуально.',
+  },
+  {
+    question: 'Что входит в пакет «Оформление свадьбы»?',
+    answer: 'Консультация и разработка концепции, цветочная арка для церемонии, композиции на гостевые столы, оформление стола молодожёнов, монтаж и демонтаж декора в день мероприятия. Состав пакета можно скорректировать под ваши пожелания.',
+  },
+  {
+    question: 'Можно ли заранее увидеть макет оформления?',
+    answer: 'Да, после согласования концепции подготовлю мудборд с палитрой, примерами композиций и схемой расстановки на площадке. Вы увидите общую картину до начала работ.',
+  },
+  {
+    question: 'Что если в день свадьбы плохая погода?',
+    answer: 'Для выездных церемоний всегда продумываю запасной вариант. Использую стойкие цветы и надёжные конструкции. Если площадка переносится под крышу — адаптирую оформление под новые условия.',
+  },
+  {
+    question: 'Какая предоплата и условия отмены?',
+    answer: 'Предоплата составляет 30% от стоимости заказа и вносится после согласования концепции. При отмене менее чем за 14 дней предоплата не возвращается, так как цветы уже заказываются у поставщиков.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+};
+---
+
+<section id="faq" class="py-20 sm:py-28 px-4 bg-cream">
+  <div class="max-w-3xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <p class="text-sage-dark uppercase tracking-[0.2em] text-sm mb-4">Ответы</p>
+      <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl">Частые вопросы</h2>
+    </div>
+
+    <div class="space-y-4 reveal">
+      {faqs.map((faq) => (
+        <details class="group border border-sage/30 rounded-lg overflow-hidden">
+          <summary class="flex items-center justify-between cursor-pointer px-6 py-5 bg-white hover:bg-sage/5 transition-colors">
+            <span class="text-charcoal font-medium text-left pr-4">{faq.question}</span>
+            <span class="shrink-0 text-sage-dark transition-transform group-open:rotate-45 text-xl leading-none">+</span>
+          </summary>
+          <div class="px-6 pb-5 pt-2 bg-white text-charcoal-light leading-relaxed">
+            {faq.answer}
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</section>
