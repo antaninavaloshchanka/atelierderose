@@ -8,6 +8,7 @@ const portfolio = defineCollection({
     title: z.string(),
     category: z.enum(['weddings', 'bouquets', 'events', 'photozones']),
     description: z.string().optional(),
+    alt: z.string().optional(),
     date: z.string().optional(),
     featured: z.boolean().default(false),
     order: z.number().default(0),

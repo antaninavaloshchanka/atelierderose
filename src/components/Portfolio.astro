@@ -23,7 +23,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
   <div class="max-w-6xl mx-auto">
     <div class="text-center mb-12 reveal">
       <p class="text-sage-dark uppercase tracking-[0.2em] text-sm mb-4">Портфолио</p>
-      <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl">Наши работы</h2>
+      <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl">Примеры работ</h2>
     </div>
 
     <!-- Filter tabs -->
@@ -51,8 +51,8 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
           >
             <Image
               src={imageModule.default}
-              alt={item.data.title}
-              class="w-full transition-transform duration-700 group-hover:scale-105"
+              alt={item.data.alt || item.data.title}
+              class="w-full aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-105"
             />
             <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 flex items-end">
               <div class="p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
