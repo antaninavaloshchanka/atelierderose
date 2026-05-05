@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import bouquetsImg from '../../assets/images/services/bouquets.jpg';
+import bouquet01 from '../../assets/images/portfolio/bouquets/bouquet-01.jpg';
+import bouquet02 from '../../assets/images/portfolio/bouquets/bouquet-02.jpg';
+import bouquet03 from '../../assets/images/portfolio/bouquets/bouquet-03.jpg';
+
+const breadcrumbs = [
+  { name: 'Главная', url: '/' },
+  { name: 'Услуги', url: '/#services' },
+  { name: 'Букет невесты', url: '/uslugi/buket-nevesty' },
+];
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbs.map((item, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: item.name,
+    item: item.url,
+  })),
+};
+---
+
+<BaseLayout
+  title="Букет невесты на заказ в Гомеле | Atelier de Rose"
+  description="Букет невесты из живых цветов на заказ в Гомеле. Авторская флористика, подбор под стиль свадьбы, бутоньерка жениха в подарок. От 150 BYN."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <section class="py-20 sm:py-28 px-4">
+    <div class="max-w-4xl mx-auto">
+      <!-- Breadcrumbs -->
+      <nav class="text-sm text-charcoal-light mb-8">
+        {breadcrumbs.map((crumb, i) => (
+          <span>
+            {i > 0 && <span class="mx-1">/</span>}
+            {i < breadcrumbs.length - 1 ? (
+              <a href={crumb.url} class="hover:text-sage-dark transition-colors">{crumb.name}</a>
+            ) : (
+              <span class="text-charcoal">{crumb.name}</span>
+            )}
+          </span>
+        ))}
+      </nav>
+
+      <h1 class="font-heading text-3xl sm:text-4xl lg:text-5xl mb-6">Букет невесты на заказ в Гомеле</h1>
+
+      <div class="mb-10">
+        <Image
+          src={bouquetsImg}
+          alt="Свадебные букеты невесты из живых цветов, авторская флористика Гомель"
+          class="w-full rounded-sm aspect-[16/7] object-cover"
+        />
+      </div>
+
+      <div class="space-y-6 text-charcoal-light leading-relaxed mb-12">
+        <p>
+          Букет невесты — главный цветочный аксессуар свадебного дня. Он должен подчёркивать образ,
+          гармонировать с платьем и общей стилистикой торжества. Я создаю букеты, которые выглядят
+          естественно и при этом выдерживают весь день — от утренних сборов до последнего танца.
+        </p>
+        <p>
+          Каждый букет собираю вручную, подбирая цветы по сезону, стойкости и сочетаемости оттенков.
+          На консультации обсудим ваши пожелания, покажу примеры и предложу варианты в рамках бюджета.
+        </p>
+
+        <h2 class="font-heading text-2xl text-charcoal pt-4">Что входит в услугу</h2>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Консультация по подбору цветов и стилистики</li>
+          <li>Букет невесты из живых цветов</li>
+          <li>Бутоньерка жениха в подарок</li>
+          <li>Букеты подружек невесты (по желанию)</li>
+          <li>Доставка в день свадьбы к месту сборов</li>
+        </ul>
+
+        <h2 class="font-heading text-2xl text-charcoal pt-4">Популярные цветы для букетов</h2>
+        <p>
+          <strong>Весна–лето:</strong> пионы, садовые розы, ранункулюсы, лизиантус, фрезия, зелень эвкалипта.<br />
+          <strong>Осень–зима:</strong> розы, хризантемы, гортензии, хлопок, суккуленты, хвоя и ягоды.
+        </p>
+        <p>
+          Выбор сезонных цветов не только снижает стоимость, но и гарантирует максимальную свежесть и стойкость букета.
+        </p>
+
+        <h2 class="font-heading text-2xl text-charcoal pt-4">Стоимость</h2>
+        <p>
+          Букет невесты — от 150 BYN. Точная цена зависит от состава, количества цветов и сложности сборки.
+          Бутоньерка жениха включена в стоимость. Букеты подружек — от 80 BYN каждый.
+        </p>
+      </div>
+
+      <!-- Portfolio examples -->
+      <h2 class="font-heading text-2xl mb-6">Примеры букетов</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
+        <Image src={bouquet01} alt="Букет невесты из садовых роз в пастельных тонах, Гомель" class="w-full aspect-[3/4] object-cover rounded-sm" />
+        <Image src={bouquet02} alt="Классический белый букет невесты, элегантная сборка" class="w-full aspect-[3/4] object-cover rounded-sm" />
+        <Image src={bouquet03} alt="Изысканный букет невесты в нежной цветовой гамме" class="w-full aspect-[3/4] object-cover rounded-sm" />
+      </div>
+
+      <!-- CTA -->
+      <div class="text-center bg-white p-10 rounded-sm border border-charcoal/10">
+        <p class="font-heading text-2xl mb-4">Хотите обсудить букет?</p>
+        <p class="text-charcoal-light mb-6">Расскажите о стиле свадьбы — подберу идеальный вариант</p>
+        <a
+          href="/#contact"
+          class="inline-block px-10 py-4 bg-sage text-white text-sm uppercase tracking-[0.15em] hover:bg-sage-dark transition-colors rounded-sm"
+        >
+          Оставить заявку
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

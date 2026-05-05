@@ -1,0 +1,123 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import weddingDecorImg from '../../assets/images/services/wedding-decor.jpg';
+import wedding01 from '../../assets/images/portfolio/weddings/wedding-01.jpg';
+import wedding02 from '../../assets/images/portfolio/weddings/wedding-02.jpg';
+import wedding03 from '../../assets/images/portfolio/weddings/wedding-03.jpg';
+
+const breadcrumbs = [
+  { name: 'Главная', url: '/' },
+  { name: 'Услуги', url: '/#services' },
+  { name: 'Оформление свадьбы', url: '/uslugi/oformlenie-svadby' },
+];
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbs.map((item, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: item.name,
+    item: item.url,
+  })),
+};
+---
+
+<BaseLayout
+  title="Оформление свадьбы цветами в Гомеле | Atelier de Rose"
+  description="Оформление свадьбы живыми цветами в Гомеле. Цветочные арки, композиции на столы, декор зоны церемонии и банкетного зала. От 500 BYN."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <section class="py-20 sm:py-28 px-4">
+    <div class="max-w-4xl mx-auto">
+      <!-- Breadcrumbs -->
+      <nav class="text-sm text-charcoal-light mb-8">
+        {breadcrumbs.map((crumb, i) => (
+          <span>
+            {i > 0 && <span class="mx-1">/</span>}
+            {i < breadcrumbs.length - 1 ? (
+              <a href={crumb.url} class="hover:text-sage-dark transition-colors">{crumb.name}</a>
+            ) : (
+              <span class="text-charcoal">{crumb.name}</span>
+            )}
+          </span>
+        ))}
+      </nav>
+
+      <h1 class="font-heading text-3xl sm:text-4xl lg:text-5xl mb-6">Оформление свадьбы цветами в Гомеле</h1>
+
+      <div class="mb-10">
+        <Image
+          src={weddingDecorImg}
+          alt="Оформление свадьбы живыми цветами — арки и композиции на столы, Гомель"
+          class="w-full rounded-sm aspect-[16/7] object-cover"
+        />
+      </div>
+
+      <div class="space-y-6 text-charcoal-light leading-relaxed mb-12">
+        <p>
+          Свадебное оформление — это не просто украшение зала. Это атмосфера, которая окутывает
+          гостей с первых минут и создаёт настроение всего дня. Я разрабатываю цветочные концепции,
+          которые рассказывают вашу историю — через оттенки, текстуры и аромат живых цветов.
+        </p>
+        <p>
+          Каждый проект начинается с консультации: обсуждаем стиль торжества, цветовую палитру,
+          особенности площадки и бюджет. На основе этого готовлю мудборд и детальное предложение
+          с разбивкой по позициям — вы заранее видите, на что идёт каждый рубль.
+        </p>
+
+        <h2 class="font-heading text-2xl text-charcoal pt-4">Что входит в оформление</h2>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Консультация и разработка концепции декора</li>
+          <li>Цветочная арка для выездной регистрации или зала</li>
+          <li>Композиции на гостевые столы</li>
+          <li>Оформление стола молодожёнов (президиума)</li>
+          <li>Оформление зоны церемонии — дорожка, маркеры рядов</li>
+          <li>Декор входной зоны и зоны welcome</li>
+          <li>Монтаж на площадке и демонтаж после мероприятия</li>
+        </ul>
+
+        <h2 class="font-heading text-2xl text-charcoal pt-4">Как я работаю</h2>
+        <p>
+          После согласования концепции закупаю цветы у проверенных поставщиков за 1–2 дня до свадьбы.
+          Работаю с розами, пионами, гортензиями, эустомами, ранункулюсами, сезонной зеленью и сухоцветами.
+          Приезжаю на площадку за 3–4 часа до начала и устанавливаю всё самостоятельно.
+          Если площадка сложная — привлекаю помощника.
+        </p>
+        <p>
+          Сезонные цветы (пионы — май–июнь, гортензии — июнь–октябрь) стоят дешевле и выглядят
+          свежее. Всегда подскажу, какие цветы оптимальны для вашего времени года.
+        </p>
+
+        <h2 class="font-heading text-2xl text-charcoal pt-4">Стоимость</h2>
+        <p>
+          Оформление свадьбы — от 500 BYN. Итоговая стоимость зависит от объёма работ, выбора цветов,
+          сезона и площадки. Предоплата 50% фиксирует дату. Рекомендую бронировать за 1–2 месяца,
+          особенно в сезон (май–сентябрь).
+        </p>
+      </div>
+
+      <!-- Portfolio examples -->
+      <h2 class="font-heading text-2xl mb-6">Примеры оформления</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
+        <Image src={wedding01} alt="Цветочная арка для свадебной церемонии, живые цветы, Гомель" class="w-full aspect-[3/4] object-cover rounded-sm" />
+        <Image src={wedding02} alt="Свадебный декор — оформление стола молодожёнов цветами" class="w-full aspect-[3/4] object-cover rounded-sm" />
+        <Image src={wedding03} alt="Композиции на гостевые столы из живых цветов, свадьба Гомель" class="w-full aspect-[3/4] object-cover rounded-sm" />
+      </div>
+
+      <!-- CTA -->
+      <div class="text-center bg-white p-10 rounded-sm border border-charcoal/10">
+        <p class="font-heading text-2xl mb-4">Обсудить оформление вашей свадьбы</p>
+        <p class="text-charcoal-light mb-6">Расскажите о торжестве — подготовлю индивидуальное предложение</p>
+        <a
+          href="/#contact"
+          class="inline-block px-10 py-4 bg-sage text-white text-sm uppercase tracking-[0.15em] hover:bg-sage-dark transition-colors rounded-sm"
+        >
+          Оставить заявку
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

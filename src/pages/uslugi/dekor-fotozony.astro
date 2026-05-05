@@ -1,0 +1,110 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import photozone01 from '../../assets/images/portfolio/photozones/photozone-01.jpg';
+import photozone02 from '../../assets/images/portfolio/photozones/photozone-02.jpg';
+
+const breadcrumbs = [
+  { name: 'Главная', url: '/' },
+  { name: 'Услуги', url: '/#services' },
+  { name: 'Декор фотозоны', url: '/uslugi/dekor-fotozony' },
+];
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbs.map((item, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: item.name,
+    item: item.url,
+  })),
+};
+---
+
+<BaseLayout
+  title="Декор фотозоны из цветов в Гомеле | Atelier de Rose"
+  description="Оформление свадебной фотозоны живыми цветами в Гомеле. Цветочные арки, панно, инсталляции для фотосессии. Свадебный декоратор Atelier de Rose."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <section class="py-20 sm:py-28 px-4">
+    <div class="max-w-4xl mx-auto">
+      <!-- Breadcrumbs -->
+      <nav class="text-sm text-charcoal-light mb-8">
+        {breadcrumbs.map((crumb, i) => (
+          <span>
+            {i > 0 && <span class="mx-1">/</span>}
+            {i < breadcrumbs.length - 1 ? (
+              <a href={crumb.url} class="hover:text-sage-dark transition-colors">{crumb.name}</a>
+            ) : (
+              <span class="text-charcoal">{crumb.name}</span>
+            )}
+          </span>
+        ))}
+      </nav>
+
+      <h1 class="font-heading text-3xl sm:text-4xl lg:text-5xl mb-6">Декор фотозоны из цветов в Гомеле</h1>
+
+      <div class="mb-10">
+        <Image
+          src={photozone01}
+          alt="Свадебная фотозона с цветочным оформлением, декоратор Гомель"
+          class="w-full rounded-sm aspect-[16/7] object-cover"
+        />
+      </div>
+
+      <div class="space-y-6 text-charcoal-light leading-relaxed mb-12">
+        <p>
+          Фотозона — это место, где гости проводят больше всего времени с телефоном в руках.
+          Красивый цветочный декор фотозоны не только украшает праздник, но и даёт каждому гостю
+          возможность сделать красивые фото — а значит, ваше торжество запомнят и в социальных сетях.
+        </p>
+        <p>
+          Я создаю фотозоны из живых цветов, которые выглядят эффектно и на фото, и вживую.
+          Работаю с арками, панно, подвесными конструкциями и отдельностоящими композициями.
+        </p>
+
+        <h2 class="font-heading text-2xl text-charcoal pt-4">Варианты оформления</h2>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Цветочная арка (круглая, прямоугольная, асимметричная)</li>
+          <li>Цветочное панно или стена из цветов</li>
+          <li>Подвесные инсталляции</li>
+          <li>Отдельностоящие композиции на стойках</li>
+          <li>Комбинированный декор (цветы + текстиль + свечи)</li>
+        </ul>
+
+        <h2 class="font-heading text-2xl text-charcoal pt-4">Для каких мероприятий</h2>
+        <p>
+          Фотозоны подходят не только для свадеб. Оформлю цветочную фотозону для дня рождения,
+          юбилея, корпоратива, выпускного или любого праздника, где нужен красивый фон для фотографий.
+        </p>
+
+        <h2 class="font-heading text-2xl text-charcoal pt-4">Стоимость и сроки</h2>
+        <p>
+          Стоимость фотозоны зависит от размера конструкции и объёма цветов. Минимальный вариант — от 200 BYN.
+          Монтаж на площадке за 1–2 часа до начала мероприятия, демонтаж — после завершения.
+        </p>
+      </div>
+
+      <!-- Portfolio examples -->
+      <h2 class="font-heading text-2xl mb-6">Примеры фотозон</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
+        <Image src={photozone01} alt="Фотозона с цветочным оформлением для свадебной фотосессии, Гомель" class="w-full aspect-[3/4] object-cover rounded-sm" />
+        <Image src={photozone02} alt="Прямоугольная цветочная арка для фотозоны, оформление Гомель" class="w-full aspect-[3/4] object-cover rounded-sm" />
+      </div>
+
+      <!-- CTA -->
+      <div class="text-center bg-white p-10 rounded-sm border border-charcoal/10">
+        <p class="font-heading text-2xl mb-4">Нужна фотозона для мероприятия?</p>
+        <p class="text-charcoal-light mb-6">Расскажите о формате — предложу подходящий вариант</p>
+        <a
+          href="/#contact"
+          class="inline-block px-10 py-4 bg-sage text-white text-sm uppercase tracking-[0.15em] hover:bg-sage-dark transition-colors rounded-sm"
+        >
+          Оставить заявку
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
