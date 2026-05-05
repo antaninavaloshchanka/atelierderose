@@ -5,6 +5,10 @@
   "location": "Гомель, Беларусь",
   "instagram": "https://www.instagram.com/iglitsa_by/",
   "instagramHandle": "@iglitsa_by",
-  "telegram": "https://t.me/iglitsa_by",
-  "workingHours": "Пн–Сб: 10:00 — 19:00"
+  "telegram": "https://t.me/iglitsa_by_bot",
+  "workingHours": "Пн–Сб: 10:00 — 19:00",
+  "fullName": "[ФИО]",
+  "unp": "[УНП]",
+  "legalForm": "Самозанятый, плательщик налога на профессиональный доход",
+  "legalEmail": "[EMAIL]"
 }

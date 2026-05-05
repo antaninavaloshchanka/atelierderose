@@ -45,14 +45,21 @@ import siteData from '../data/site.json';
       </div>
     </div>
 
-    <div class="border-t border-white/10 pt-8 text-center text-xs text-white/50 space-y-2">
-      <p>&copy; 2026 {siteData.brand}. Все права защищены. {siteData.location}</p>
-      <p>* Фотоматериалы на сайте носят иллюстративный характер и могут отличаться от фактически выполненных работ.</p>
-      <p>
-        <a href="/privacy" class="underline hover:text-white transition-colors">Политика конфиденциальности</a>
-        <span class="mx-2">|</span>
-        <a href="/oferta" class="underline hover:text-white transition-colors">Публичная оферта</a>
-      </p>
+    <div class="border-t border-white/10 pt-8 text-xs text-white/50 space-y-4">
+      <div class="text-center space-y-1">
+        <p>{siteData.fullName} &middot; УНП {siteData.unp}</p>
+        <p>{siteData.legalForm}</p>
+        <p>E-mail: <a href={`mailto:${siteData.legalEmail}`} class="underline hover:text-white transition-colors">{siteData.legalEmail}</a></p>
+      </div>
+      <div class="text-center space-y-2">
+        <p>&copy; 2026 {siteData.brand}. Все права защищены. {siteData.location}</p>
+        <p>* Фотоматериалы на сайте носят иллюстративный характер и могут отличаться от фактически выполненных работ.</p>
+        <p>
+          <a href="/privacy" class="underline hover:text-white transition-colors">Политика конфиденциальности</a>
+          <span class="mx-2">|</span>
+          <a href="/oferta" class="underline hover:text-white transition-colors">Публичная оферта</a>
+        </p>
+      </div>
     </div>
   </div>
 </footer>
