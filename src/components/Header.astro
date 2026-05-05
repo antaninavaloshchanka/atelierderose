@@ -1,12 +1,14 @@
 ---
 import siteData from '../data/site.json';
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
 const navLinks = [
   { href: '#services', label: 'Услуги' },
   { href: '#portfolio', label: 'Портфолио' },
   { href: '#about', label: 'О нас' },
   { href: '#pricing', label: 'Стоимость' },
-  { href: '/blog/', label: 'Блог' },
+  { href: `${base}/blog/`, label: 'Блог' },
   { href: '#contact', label: 'Контакты' },
 ];
 ---
@@ -14,7 +16,7 @@ const navLinks = [
 <header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
     <!-- Logo -->
-    <a href="/" class="font-heading text-2xl tracking-wide text-white header-scrolled:text-charcoal transition-colors duration-300">
+    <a href={`${base}/`} class="font-heading text-2xl tracking-wide text-white header-scrolled:text-charcoal transition-colors duration-300">
       {siteData.brand}
     </a>
 
@@ -108,16 +110,16 @@ const navLinks = [
 </script>
 
 <style>
+  .scrolled a:not(.mobile-nav-link):not([href^="#"]):not(:first-child) {
+    color: var(--color-charcoal-light);
+  }
+  .scrolled a:not(.mobile-nav-link):not([href^="#"]):not(:first-child):hover {
+    color: var(--color-charcoal);
+  }
   .scrolled a[href^="#"]:not(.mobile-nav-link) {
     color: var(--color-charcoal-light);
   }
   .scrolled a[href^="#"]:not(.mobile-nav-link):hover {
-    color: var(--color-charcoal);
-  }
-  .scrolled a[href="/blog/"]:not(.mobile-nav-link) {
-    color: var(--color-charcoal-light);
-  }
-  .scrolled a[href="/blog/"]:not(.mobile-nav-link):hover {
     color: var(--color-charcoal);
   }
   .scrolled > div > a:first-child {
