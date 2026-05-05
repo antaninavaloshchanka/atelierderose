@@ -2,10 +2,13 @@
 import { defineConfig, fontProviders } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
+import node from '@astrojs/node';
 
 export default defineConfig({
   site: 'https://antaninavaloshchanka.github.io',
   base: '/atelierderose',
+  output: 'hybrid',
+  adapter: node({ mode: 'standalone' }),
   i18n: {
     locales: ['ru'],
     defaultLocale: 'ru',
