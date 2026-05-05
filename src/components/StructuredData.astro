@@ -3,13 +3,16 @@ import siteData from '../data/site.json';
 
 const schema = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": ["LocalBusiness", "Florist"],
   "name": siteData.brand,
   "description": siteData.description,
   "url": "https://atelierderose.by",
+  "telephone": siteData.telephone,
+  "email": siteData.legalEmail,
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Гомель",
+    "addressRegion": "Гомельская область",
     "addressCountry": "BY"
   },
   "geo": {
@@ -18,16 +21,61 @@ const schema = {
     "longitude": "30.9754"
   },
   "openingHours": "Mo-Sa 10:00-19:00",
-  "priceRange": "$$",
+  "priceRange": "BYN 150–3000",
   "image": "https://atelierderose.by/og-image.jpg",
   "sameAs": [
     siteData.instagram,
     siteData.telegram
   ],
-  "serviceArea": {
-    "@type": "City",
-    "name": "Гомель"
-  }
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Гомель"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Гомельская область"
+    }
+  ],
+  "founder": {
+    "@type": "Person",
+    "name": siteData.fullName,
+    "jobTitle": "Флорист-декоратор"
+  },
+  "makesOffer": [
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Оформление свадьбы цветами",
+        "description": "Комплексное флористическое оформление свадебного торжества"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Букет невесты",
+        "description": "Авторский букет невесты из живых цветов"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Декор фотозоны",
+        "description": "Оформление фотозоны цветами и декоративными элементами"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Декор мероприятий",
+        "description": "Флористическое оформление корпоративов, юбилеев, праздников"
+      }
+    }
+  ]
 };
 ---
 
