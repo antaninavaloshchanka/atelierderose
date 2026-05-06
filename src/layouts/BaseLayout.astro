@@ -5,6 +5,7 @@ import StructuredData from '../components/StructuredData.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import FloatingButtons from '../components/FloatingButtons.astro';
+import CookieBanner from '../components/CookieBanner.astro';
 
 interface Props {
   title?: string;
@@ -12,7 +13,6 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
-const metrikaId = import.meta.env.PUBLIC_YANDEX_METRIKA_ID;
 ---
 
 <!doctype html>
@@ -28,6 +28,7 @@ const metrikaId = import.meta.env.PUBLIC_YANDEX_METRIKA_ID;
     </main>
     <Footer />
     <FloatingButtons />
+    <CookieBanner />
 
     <script>
       const observer = new IntersectionObserver(
@@ -43,25 +44,5 @@ const metrikaId = import.meta.env.PUBLIC_YANDEX_METRIKA_ID;
       );
       document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
     </script>
-
-    {metrikaId && (
-      <script is:inline define:vars={{ metrikaId }}>
-        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-        ym(Number(metrikaId), "init", {
-          clickmap: true,
-          trackLinks: true,
-          accurateTrackBounce: true,
-          webvisor: true
-        });
-      </script>
-      <noscript>
-        <div><img src={`https://mc.yandex.ru/watch/${metrikaId}`} style="position:absolute; left:-9999px;" alt="" /></div>
-      </noscript>
-    )}
   </body>
 </html>

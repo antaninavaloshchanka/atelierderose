@@ -1,0 +1,75 @@
+---
+const metrikaId = import.meta.env.PUBLIC_YANDEX_METRIKA_ID;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+{metrikaId && (
+  <div
+    id="cookie-banner"
+    class="fixed bottom-0 left-0 right-0 z-50 bg-charcoal/95 text-white px-4 py-4 backdrop-blur-sm hidden"
+  >
+    <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center gap-4">
+      <p class="text-sm text-white/90 flex-1">
+        Сайт использует cookies для аналитики.
+        Подробнее в <a href={`${base}/cookies`} class="underline hover:text-sage transition-colors">Политике обработки cookies</a>.
+      </p>
+      <div class="flex gap-3">
+        <button
+          id="cookie-decline"
+          class="px-5 py-2 text-sm border border-white/40 rounded-lg hover:bg-white/10 transition-colors"
+        >
+          Отклонить
+        </button>
+        <button
+          id="cookie-accept"
+          class="px-5 py-2 text-sm border border-white/40 bg-sage text-white rounded-lg hover:bg-sage-dark transition-colors"
+        >
+          Принять
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script is:inline define:vars={{ metrikaId }}>
+    (function () {
+      var CONSENT_KEY = 'cookie_consent';
+      var consent = localStorage.getItem(CONSENT_KEY);
+
+      function loadMetrika() {
+        if (typeof ym !== 'undefined') return;
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+        ym(Number(metrikaId), "init", {
+          clickmap: true,
+          trackLinks: true,
+          accurateTrackBounce: true,
+          webvisor: true
+        });
+      }
+
+      if (consent === 'accepted') {
+        loadMetrika();
+        return;
+      }
+
+      if (consent === 'declined') return;
+
+      var banner = document.getElementById('cookie-banner');
+      if (banner) banner.classList.remove('hidden');
+
+      document.getElementById('cookie-accept')?.addEventListener('click', function () {
+        localStorage.setItem(CONSENT_KEY, 'accepted');
+        banner?.classList.add('hidden');
+        loadMetrika();
+      });
+
+      document.getElementById('cookie-decline')?.addEventListener('click', function () {
+        localStorage.setItem(CONSENT_KEY, 'declined');
+        banner?.classList.add('hidden');
+      });
+    })();
+  </script>
+)}
