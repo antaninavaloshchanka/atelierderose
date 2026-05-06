@@ -1,12 +1,14 @@
 ---
 import siteData from '../data/site.json';
 
+const siteUrl = new URL(import.meta.env.BASE_URL, Astro.site).href.replace(/\/$/, '');
+
 const schema = {
   "@context": "https://schema.org",
   "@type": ["LocalBusiness", "Florist"],
   "name": siteData.brand,
   "description": siteData.description,
-  "url": "https://atelierderose.by",
+  "url": siteUrl,
   "telephone": siteData.telephone,
   "email": siteData.legalEmail,
   "address": {
@@ -22,7 +24,7 @@ const schema = {
   },
   "openingHours": "Mo-Sa 10:00-19:00",
   "priceRange": "BYN 150–3000",
-  "image": "https://atelierderose.by/og-image.jpg",
+  "image": `${siteUrl}/og-image.jpg`,
   "sameAs": [
     siteData.instagram,
     siteData.telegram
