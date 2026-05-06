@@ -196,6 +196,9 @@ import siteData from '../data/site.json';
       status.textContent = 'Заявка отправлена! Я свяжусь с вами в ближайшее время.';
       status.className = 'text-center text-sm text-sage-dark';
       form.reset();
+      if (typeof ym === 'function') {
+        ym(Number(import.meta.env.PUBLIC_YANDEX_METRIKA_ID), 'reachGoal', 'form_submit');
+      }
     } catch {
       status.textContent = 'Ошибка отправки. Напишите мне в Telegram напрямую.';
       status.className = 'text-center text-sm text-dusty-rose-dark';
